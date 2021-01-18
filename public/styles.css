@@ -37,6 +37,7 @@ footer p {
   color: #ccc;
 }
 .note {
+  position: relative;
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
@@ -55,15 +56,17 @@ footer p {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.note button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
+.add {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
   background: navy;
   color: #fff;
   border: none;
+  border-radius: 50%;
   width: 36px;
   height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
 }
@@ -91,6 +94,34 @@ form button {
   position: absolute;
   right: 18px;
   bottom: -18px;
+  background: navy;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+.delete{
+  position: absolute;
+  left: 18px;
+  bottom: -18px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+.back{
+  position: absolute;
+  right: 18px;
+  top: -18px;
   background: navy;
   color: #fff;
   border: none;

@@ -9,7 +9,7 @@ import Topic from './Topics';
 const App = ()=>{
     const [notes, setNotes ] = useState([]);
     const [topics, setTopics ] = useState([]);
-    const [selectedTopic, setSelectedTopic] = useState({topicSelected: false, name: ''});
+    const [selectedTopic, setSelectedTopic] = useState({topicSelected: false, name: ''}); 
 
     useEffect(()=>{
         if(localStorage.getItem('topics') === null){
@@ -40,15 +40,29 @@ const App = ()=>{
             {topics.map((topic, index) => 
                 <Topic 
                 key={index}
+                id={index}
                 topic={topic}
+                topics={topics}
+                setTopics={setTopics}
+                notes={notes}
+                setNotes={setNotes}
                 setSelectedTopic={setSelectedTopic}
                 />
             )}</> : <>
-            <AddNote notes={notes} setNotes={setNotes} setSelectedTopic={setSelectedTopic} topic={selectedTopic.name}/>
-            {notes.map((note, index) => <Note 
+            <AddNote notes={notes} setNotes={setNotes}  topic={selectedTopic.name} setTopics={setTopics} topics={topics} setSelectedTopic={setSelectedTopic}/>
+            {notes.map((note, index) => {
+                if(note.topic == selectedTopic.name){
+                return <Note 
                 key={index} 
+                id={index}
                 title={note.title} 
-                content={note.content}/>)}
+                content={note.content}
+                notes={notes}
+                setNotes={setNotes}/>
+                }else{
+                    return null;
+                }
+            })}
                 </>}
             <Footer />
         </>
